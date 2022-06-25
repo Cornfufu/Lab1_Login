@@ -12,9 +12,9 @@ function App() {
 
   const Login = details => {
     console.log(details);
-
+//lưu input ng dùng nhập 
     if(details.email == adminUser.email && details.password == adminUser.password) {
-      console.log("Logged in!");
+      console.log("Logged in!"); //chỉ hiện ở console 
       setUser({
         name: details.name,
         email: details.email
@@ -22,19 +22,22 @@ function App() {
     }
     else {
       console.log("Details do not match!");
+      setError("Details do not match!");
     }
   }
 
 
   const Logout = details => {
     console.log("Logout");
+//chuyển về trạng thái mặc định
+    setUser({name: "", email: ""});
   }
   return (
     <div className="App">
       {(user.email != "") ? (
         <div className = "welcome">
           <h2>Welcome, <span>{user.name}</span></h2>
-          <button>Logout</button>
+          <button onClick={Logout}>Logout</button>
         </div>
       ) : (
         <LoginPage Login={Login} error={error}/>
