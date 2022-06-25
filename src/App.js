@@ -21,23 +21,23 @@ function App() {
       })
     }
     else {
-      console.log("Details do not match!");
-      setError("Details do not match!");
+      console.log("Error! Please try again.");
+      setError("Error! Please try again.");
     }
   }
-
 
   const Logout = details => {
     console.log("Logout");
 //chuyển về trạng thái mặc định
     setUser({name: "", email: ""});
   }
+
   return (
     <div className="App">
       {(user.email != "") ? (
         <div className = "welcome">
-          <h2>Welcome, <span>{user.name}</span></h2>
-          <button onClick={Logout}>Logout</button>
+          <h2>Welcome, <span>{user.name}!</span> Wish you all the best.</h2>
+          <button onClick={Logout}>Sign Out</button>
         </div>
       ) : (
         <LoginPage Login={Login} error={error}/>
